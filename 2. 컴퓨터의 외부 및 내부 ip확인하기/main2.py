@@ -12,5 +12,6 @@ print("내부 아이피>> ",in_addr2.getsockname())#('172.30.1.22', 62817) ('172
 
 
 req = requests.get("http://ipconfig.kr")
-out_addr = re.search(r'IP Adress: (   \d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}.    )', req.text[1])
+# print(req.text)
+out_addr = re.search(r'IP Address: \d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}', req.text)[0]
 print("외부 아이피>> ",out_addr)
