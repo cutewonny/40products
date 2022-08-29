@@ -21,10 +21,11 @@ def get_exchange_rate(target1, target2):
     headers={'User-Agent': 'Mozilla/5.0'}
     # https://kr.investing.com/currencies/usd-krw
     response = requests.get("https://kr.investing.com/currencies/{}-{}".format(target1, target2), headers = headers)
-    response2 = requests.get("https://kr.investing.com/currencies/usd-krw")
+    response2 = requests.get("https://www.naver.com")
     print('response>> ',response)
     print('response2>> ',response2)
-    content = BeautifulSoup(response.content, 'html.parser')
+    
+    content = BeautifulSoup(response2.content, 'html.parser')
     containers = content.find('span', {'data-test':'instrument-price-last'})
     print(containers)
 
